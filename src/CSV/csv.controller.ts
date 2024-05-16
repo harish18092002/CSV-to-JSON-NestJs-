@@ -1,6 +1,5 @@
 import { Body, Controller, Get } from '@nestjs/common';
 import { CsvService } from './csv.service';
-import { url } from 'inspector';
 
 @Controller()
 export class CsvController {

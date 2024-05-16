@@ -1,0 +1,54 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+model User {
+  name         String
+  id           String   @id
+  email        String   @unique
+  password     String
+  address      Address?
+  mobileNumber String   @map("mobile_number")
+  role         Role
+  totalAmount  String   @map("total_amount")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model Address {
+  id         String  @id
+  address1   String  @map("address_1")
+  address2   String? @map("address_2")
+  address3   String? @map("address_3")
+  postalCode String  @map("postal_code")
+  country    String
+  city       String
+  user       User    @relation(fields: [id], references: [id])
+}
+
+model Amount {
+  cash        Json
+  id          String @id
+  totalAmount String @map("total_amount")
+}
+
+model Transaction {
+  transactionId   String          @id @map("transaction_Id")
+  amount          String          @map("total_amount")
+  transactionType transactionType @map("transaction_type")
+  userId          String          @map("created_by")
+  createdAt       DateTime        @default(now()) @map("created_at")
+}
+
+enum transactionType {
+  CREDIT
+  DEBIT
+}

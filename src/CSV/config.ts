@@ -1,5 +1,3 @@
-import { ServiceAccount, cert } from 'firebase-admin/app';
-
 export const firebaseCredentials = {
     type: 'service_account',
     project_id: 'nestjs-parsecsv',

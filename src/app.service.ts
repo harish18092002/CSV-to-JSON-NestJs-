@@ -7,6 +7,7 @@ import { Logger } from '@nestjs/common';
 import { TResponse } from './type';
 import { IUserInterface, TWithouthPassword } from './interface';
 
+
 @Injectable()
 export class AppService {
     private logger: Logger;
@@ -167,61 +168,3 @@ export class AppService {
         }
     }
 }
-
-// function csvToJson(csvData: string): any[] {
-//     const json = [];
-//     const rows = csvData.split('\n');
-//     const headers = rows[0].split(',');
-//     for (let i = 1; i < rows.length; i++) {
-//         const row = {};
-//         const cells = rows[i].split(',');
-//         for (let j = 0; j < cells.length; j++) {
-//             row[headers[j]] = cells[j];
-//         }
-//         json.push(row);
-//     }
-//     return json;
-// }
-
-// async parseCsvToJson(csvData: string): Promise<any[]> {
-//     const rows = csvData.split('\r'); // Split by carriage return '\r'
-//     const headers = rows[0].split(',');
-//     const jsonData = [];
-
-//     for (let i = 1; i < rows.length; i++) {
-//       const values = rows[i].split(',');
-//       const obj = {};
-
-//       for (let j = 0; j < headers.length; j++) {
-//         obj[headers[j]] = values[j];
-//       }
-
-//       jsonData.push(obj);
-//     }
-
-//     return jsonData;
-// }
-
-// const csvData = 'name,age,country\nJohn,25,USA\nJane,30,Canada\nBob,35,Mexico';
-// const json = csvToJson(csvData);
-// console.log(json)
-
-// async parseCsvToJson(csvData: string): Promise<any[]> {
-//     const rows = csvData.split('\n').filter(row => row.trim() !== ''); // Split by newline '\n' and filter out empty rows
-//     const headers = rows[0].split(',');
-//     const jsonData = [];
-
-//     for (let i = 1; i < rows.length; i++) {
-//       const values = rows[i].split(',');
-//       const obj = {};
-
-//       for (let j = 0; j < headers.length; j++) {
-//         obj[headers[j]] = values[j];
-//       }
-
-//       jsonData.push(obj);
-//     }
-
-//     return jsonData;
-// }
-// ;

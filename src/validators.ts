@@ -31,7 +31,7 @@ export function emailValidators(email: string) {
     if (!email.match(emailRegex))
         throw new Error('Enter a valid email address');
     return email;
-}
+} 
 
 // Password is validated here
 export function passwordValidators(password: string) {

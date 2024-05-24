@@ -73,7 +73,7 @@ export class AmountService {
             // Get cash details
             const atmCash = await this.prisma.prismaClient.amount.findFirst({
                 where: {
-                    id: '82390cd61070680f',
+                    id: '824045b992eb2809',
                 },
             });
             const user = await this.prisma.prismaClient.user.findUnique({
@@ -170,6 +170,7 @@ export class AmountService {
                     id: cashUpdate.id,
                 },
                 data: {
+                    id: generateID('HEX'),
                     totalAmount: cashUpdate.totalAmount,
                     cash: cashUpdate.cash,
                 },

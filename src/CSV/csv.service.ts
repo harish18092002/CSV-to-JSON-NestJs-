@@ -25,9 +25,7 @@ export class CsvService {
             const fireData = Buffer.from(...(await bucket.download())).toString(
                 'utf8',
             );
-            const regex = /_/i;
-            const str = 'harish_18';
-            console.log(str.replace(regex, '09'));
+        
 
             const csvToSnakeCase = (str: string) => {
                 if (!str) return '';
@@ -52,12 +50,8 @@ export class CsvService {
                 const cells = rows[i].split(',');
 
                 for (let j = 1; j < cells.length; j++) {
-                    // if (cells[j] != '') {
                     const header = csvToSnakeCase(headers[j]);
                     row[header] = cells[j];
-
-                    // row[headers[j]] = cells[j];
-                    // }
                 }
                 json.push(row);
             }

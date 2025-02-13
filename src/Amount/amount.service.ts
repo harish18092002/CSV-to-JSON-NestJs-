@@ -138,15 +138,13 @@ export class AmountService {
             const atmAmount = parseInt(atmCash.totalAmount);
             const userAmount = parseInt(data.amount);
             const updatedAtm = atmAmount - userAmount;
-            const updatedAtmCash = await this.prisma.prismaClient.amount.update(
-                {
-                    where: { id: atmCash.id },
-                    data: {
-                        cash: updatedCash,
-                        totalAmount: updatedAtm.toString(),
-                    },
-                },
-            );
+ await this.prisma.prismaClient.amount.update({
+     where: { id: atmCash.id },
+     data: {
+         cash: updatedCash,
+         totalAmount: updatedAtm.toString(),
+     },
+ });
 
             return {
                 status: 'SUCCESS',

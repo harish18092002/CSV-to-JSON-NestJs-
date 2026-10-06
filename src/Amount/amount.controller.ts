@@ -7,6 +7,7 @@ export class AmountController {
     constructor(private readonly amountService: AmountService) {}
 
     // for credting the amount
+
     @Post('credit')
     creditAmount(
         @Body()
